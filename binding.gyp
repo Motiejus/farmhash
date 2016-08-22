@@ -1,6 +1,6 @@
 {
   'variables': {
-    'farmhash_arch%': 'native'
+    'farmhash_cflags%': '<!(echo ${FARMHASH_CFLAGS:--march=native})',
   },
   'targets': [{
     'target_name': 'farmhash',
@@ -14,10 +14,10 @@
     'cflags_cc': [
         '-fexceptions',
         '-Wall',
-        '-march=<(farmhash_arch)',
         '-Ofast',
         '-flto',
-        '-funroll-loops'
+        '-funroll-loops',
+        '<(farmhash_cflags)'
     ],
     'conditions': [
       [ 'OS=="win"', {
@@ -30,9 +30,9 @@
       'OTHER_CPLUSPLUSFLAGS': [
         '-fexceptions',
         '-Wall',
-        '-march=<(farmhash_arch)',
         '-Ofast',
-        '-funroll-loops'
+        '-funroll-loops',
+        '<(farmhash_cflags)'
       ]
     },
     'configurations': {
@@ -59,10 +59,10 @@
     'cflags_cc': [
         '-fexceptions',
         '-Wall',
-        '-march=<(farmhash_arch)',
         '-Ofast',
         '-flto',
-        '-funroll-loops'
+        '-funroll-loops',
+        '<(farmhash_cflags)'
     ],
     'conditions': [
       [ 'OS=="win"', {
@@ -75,9 +75,9 @@
       'OTHER_CPLUSPLUSFLAGS': [
         '-fexceptions',
         '-Wall',
-        '-march=<(farmhash_arch)',
         '-Ofast',
-        '-funroll-loops'
+        '-funroll-loops',
+        '<(farmhash_cflags)'
       ]
     },
     'configurations': {
